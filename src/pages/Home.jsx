@@ -22,6 +22,12 @@ const Home = () => {
   // getTutorials();
 
 
+  
+
+
+
+
+
   return (
     <>
       <AddTutorial />
