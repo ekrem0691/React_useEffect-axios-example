@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const AddTutorial = ({ addTutorial }) => {
-  const [title, setTitle] = useState('');
-  const [desc, setDesc] = useState('');
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTutorial({ title: title, description: desc });
+    const totarial = {
+      title : title,
+      description : desc
+    }
+    addTutorial(totarial);
     setTitle('');
     setDesc('');
   };
@@ -45,6 +49,7 @@ const AddTutorial = ({ addTutorial }) => {
         </div>
         <button className="btn btn-danger mb-4">Submit</button>
       </form>
+      
     </div>
   );
 };
