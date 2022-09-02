@@ -8,7 +8,7 @@ const AddTutorial = ({ addTutorial }) => {
     e.preventDefault();
     addTutorial({
       title: title,
-      description: desc,
+      description: desc
     });
     setTitle("");
     setDesc("");
@@ -16,7 +16,7 @@ const AddTutorial = ({ addTutorial }) => {
 
   return (
     <div className="container text-center mt-4">
-      <h1 className="display-6 text-bg-success">Add Your Tutorial</h1>
+      <h1 className="display-4 text-bg-success">Add Your Tutorial</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">

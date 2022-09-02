@@ -8,6 +8,8 @@ const Home = () => {
 
   const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";
 
+
+  //! GET (Read).......
   const getTutorials = async () => {
     try {
       const { data } = await axios.get(url);
@@ -25,14 +27,15 @@ const Home = () => {
 
   console.log(tutorials);
 
-  //! POST (create)
+
+  //! POST (create).......
   const addTutorial = async (tutorial) => {
     try {
       await axios.post(url, tutorial);
     } catch (error) {
       console.log(error);
     }
-    getTutorials();
+    getTutorials(); //? GET(Read)
   };
 
   return (
