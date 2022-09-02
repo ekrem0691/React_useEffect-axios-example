@@ -6,18 +6,17 @@ const AddTutorial = ({ addTutorial }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const totarial = {
-      title : title,
-      description : desc
-    }
-    addTutorial(totarial);
-    setTitle('');
-    setDesc('');
+    addTutorial({
+      title: title,
+      description: desc,
+    });
+    setTitle("");
+    setDesc("");
   };
 
   return (
     <div className="container text-center mt-4">
-      <h1 className="display-6 text-danger">Add Your Tutorial</h1>
+      <h1 className="display-6 text-bg-success">Add Your Tutorial</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
@@ -49,7 +48,6 @@ const AddTutorial = ({ addTutorial }) => {
         </div>
         <button className="btn btn-danger mb-4">Submit</button>
       </form>
-      
     </div>
   );
 };

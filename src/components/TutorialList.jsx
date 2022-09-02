@@ -8,6 +8,9 @@ const TutorialList = ({tutorials}) => {
 
   return (
     <div className="container mt-4">
+      <hr/>
+      <br />
+      <h1 className='text-center text-bg-warning' >Tutorial-List</h1>
       <table className="table table-striped">
         <thead>
           <tr>
