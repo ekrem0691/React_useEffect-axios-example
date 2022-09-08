@@ -1,16 +1,12 @@
-import { FaEdit } from 'react-icons/fa';
-import { AiFillDelete } from 'react-icons/ai';
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 
-
-
-const TutorialList = ({tutorials}) => {
-  
-
+const TutorialList = ({ tutorials, deleteTutorial }) => {
   return (
     <div className="container mt-4">
-      <hr/>
+      <hr />
       <br />
-      <h1 className='text-center text-bg-warning' >Tutorial-List</h1>
+      <h1 className="text-center text-bg-warning">Tutorial-List</h1>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -35,14 +31,12 @@ const TutorialList = ({tutorials}) => {
                     data-bs-toggle="modal"
                     data-bs-target="#edit-modal"
                     size={20}
-                    className="me-2 text-warning cursor-pointer"
-                    
+                    className="me-2 text-warning cursor-pointer "
                   />
-                  <AiFillDelete
+                  <AiFillDelete onClick={()=>deleteTutorial(id)}
                     size={22}
-                    className="text-danger cursor-pointer"
-                    
-                  />s
+                    className="text-danger cursor-pointer "
+                  />
                 </td>
               </tr>
             );

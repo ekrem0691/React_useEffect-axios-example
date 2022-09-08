@@ -8,7 +8,6 @@ const Home = () => {
 
   const url = "https://tutorials-api-cw.herokuapp.com/api/tutorials";
 
-
   //! GET (Read).......
   const getTutorials = async () => {
     try {
@@ -27,7 +26,6 @@ const Home = () => {
 
   console.log(tutorials);
 
-
   //! POST (create).......
   const addTutorial = async (tutorial) => {
     try {
@@ -38,10 +36,33 @@ const Home = () => {
     getTutorials(); //? GET(Read)
   };
 
+
+  //! DELETE (delete)........
+  const deleteTutorial =  async(id) => {
+    try {
+      await axios.delete(` ${url}/${id} `)
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  }
+
+
+  //! UPDATE( PUT(tamamını), PATCH(parçalarını) düzeltme yapar.. )
+  const editTutorial = async (id, title, desc)=>{
+    try {
+      await axios.put(` ${url}/${id} `);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials();
+  }
+
+
   return (
     <>
       <AddTutorial addTutorial={addTutorial} />
-      <TutorialList tutorials={tutorials} />
+      <TutorialList tutorials={tutorials} deleteTutorial = {deleteTutorial} />
     </>
   );
 };
