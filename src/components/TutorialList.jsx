@@ -1,7 +1,7 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 
-const TutorialList = ({ tutorials, deleteTutorial }) => {
+const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
   return (
     <div className="container mt-4">
       <hr />
@@ -32,6 +32,7 @@ const TutorialList = ({ tutorials, deleteTutorial }) => {
                     data-bs-target="#edit-modal"
                     size={20}
                     className="me-2 text-warning cursor-pointer "
+                    onClick={()=>editTutorial(id, "CSS", "Stylesheet") } 
                   />
                   <AiFillDelete onClick={()=>deleteTutorial(id)}
                     size={22}
