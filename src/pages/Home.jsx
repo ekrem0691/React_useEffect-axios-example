@@ -36,40 +36,39 @@ const Home = () => {
     getTutorials(); //? GET(Read)
   };
 
-
   //! DELETE (delete)........
-  const deleteTutorial =  async(id) => {
+  const deleteTutorial = async (id) => {
     try {
-      await axios.delete(` ${url}/${id} `)
+      await axios.delete(` ${url}/${id} `);
     } catch (error) {
       console.log(error);
     }
     getTutorials();
-  }
-
+  };
 
   //! UPDATE( PUT(tamamını), PATCH(parçalarını) düzeltme yapar.. )
-  const editTutorial = async (id, title, desc)=>{
-
-
-    const filtered = tutorials.filter((tutor)=> tutor.id === id ).map(()=>({title:title, description:desc}))
+  const editTutorial = async (id, title, desc) => {
+    const filtered = tutorials
+      .filter((tutor) => tutor.id === id)
+      .map(() => ({ title: title, description: desc }));
     console.log(filtered);
-    
-
 
     try {
-      await axios.put(`${url}/${id}`, filtered[0] );
+      await axios.put(`${url}/${id}`, filtered[0]);
     } catch (error) {
       console.log(error);
     }
     getTutorials();
-  }
-
+  };
 
   return (
     <>
       <AddTutorial addTutorial={addTutorial} />
-      <TutorialList tutorials={tutorials} deleteTutorial = {deleteTutorial} editTutorial = {editTutorial} />
+      <TutorialList
+        tutorials={tutorials}
+        deleteTutorial={deleteTutorial}
+        editTutorial={editTutorial}
+      />
     </>
   );
 };
