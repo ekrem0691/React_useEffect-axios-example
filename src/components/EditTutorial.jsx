@@ -1,10 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from "react";
 
 const EditTutorial = ({ editTutorial, editItem }) => {
-  const { id, title: newTitle, description } = editItem;
+  const{id, title:newTitle, description} = editItem;
 
   const [title, setTitle] = useState(newTitle);
   const [desc, setDesc] = useState(description);
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    editTutorial({ id:id, title:title, description:desc})
+    setTitle("");
+    setDesc("");
+  };
+
+  
+
+
 
   //? https://reactjs.org/docs/hooks-reference.html#usestate
   //! State degiskeninin degeri, 1.render ile initialState
@@ -18,17 +29,6 @@ const EditTutorial = ({ editTutorial, editItem }) => {
   //? componentDidUpdate
   //? newTitle veya description her degistiginde local title ve
   //? desc state'lerimizi gunceliyoruz.
-  useEffect(() => {
-    setTitle(newTitle);
-    setDesc(description);
-  }, [newTitle, description]);
-
-  const handleSave = (e) => {
-    e.preventDefault();
-    editTutorial(id, title, desc);
-    setTitle('');
-    setDesc('');
-  };
 
   return (
     <div className="modal" tabIndex="-1" id="edit-modal">
@@ -53,9 +53,9 @@ const EditTutorial = ({ editTutorial, editItem }) => {
                 className="form-control"
                 id="title"
                 placeholder="Enter your title"
-                value={title || ''}
-                onChange={(e) => setTitle(e.target.value)}
+                value={title}
                 required
+                onChange={(e)=> setTitle(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -67,17 +67,17 @@ const EditTutorial = ({ editTutorial, editItem }) => {
                 className="form-control"
                 id="desc"
                 placeholder="Enter your Description"
-                value={desc || ''}
-                onChange={(e) => setDesc(e.target.value)}
+                value={desc}
                 required
+                onChange={(e)=> setDesc(e.target.value) }
               />
             </div>
           </div>
           <div className="modal-footer">
             <button
+              onClick={handleSave}
               type="button"
               className="btn btn-primary"
-              onClick={handleSave}
               data-bs-dismiss="modal"
             >
               Save
