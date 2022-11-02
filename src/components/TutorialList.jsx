@@ -4,7 +4,6 @@ import EditTutorial from "./EditTutorial";
 import { useState } from "react";
 
 const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
-
   const [editItem, setEditItem] = useState("");
 
   return (
@@ -37,7 +36,7 @@ const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
                     data-bs-target="#edit-modal"
                     size={20}
                     className="me-2 text-warning cursor-pointer "
-                    onClick={() => setEditItem(item) }
+                    onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
                     onClick={() => deleteTutorial(id)}

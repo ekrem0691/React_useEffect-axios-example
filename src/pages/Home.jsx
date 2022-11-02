@@ -33,7 +33,7 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-    getTutorials(); //? GET(Read)
+    getTutorials();
   };
 
   //! DELETE (delete)........
